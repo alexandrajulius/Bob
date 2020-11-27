@@ -3,10 +3,10 @@
 
 Bob used to be a lackadaisical teenager and was born in a Code Kata.
 In conversation, his responses were limited:
-• Bob answered 'Sure.' if you asked him a question.
-• He answered 'Whoa, chill out!' if you YELLED AT HIM.
-• He answered 'Calm down, I know what I'm doing!' if you yelled a question at him.
-• He said 'Fine. Be that way!' if you addressed him without actually saying anything.
+* Bob answered 'Sure.' if you asked him a question.
+* He answered 'Whoa, chill out!' if you YELLED AT HIM.
+* He answered 'Calm down, I know what I'm doing!' if you yelled a question at him.
+* He said 'Fine. Be that way!' if you addressed him without actually saying anything.
 
 Now Bob quotes from Samuel Beckett’s 'Waiting for Godot' in most of the cases.
 
@@ -28,7 +28,7 @@ In the root directory type:
       php bobtalk.php
 
 and have elementary conversations with Bob such as:
-<img width="736" alt="Screenshot 2020-11-22 at 21 22 45" src="https://user-images.githubusercontent.com/23189414/100483062-89fcc980-30f8-11eb-9e28-1aa7892276db.png">
+![bob](https://user-images.githubusercontent.com/23189414/100483997-fd073f80-30fa-11eb-9744-7b8394bfe9a3.png)
 
 You can further extends Bob to quote from your favourite book by requesting quotes from [https://en.wikiquote.org/](https://en.wikiquote.org/wiki/Main_Page)
 
