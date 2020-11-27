@@ -1,0 +1,21 @@
+{
+    "require-dev": {
+        "php-vcr/php-vcr": "^1.5",
+        "php-vcr/phpunit-testlistener-vcr": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "phpunit/phpunit": "*",
+        "php": ">=7.2",
+        "phpunit/php-code-coverage": "^9.2"
+    }
+}
