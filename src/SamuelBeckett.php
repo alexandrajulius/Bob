@@ -18,28 +18,14 @@ final class SamuelBeckett
 
     public function quote(): string
     {
-        $wikiQuotes = $this->wikiQuotes->get();
+        $wikiQuotes = $this->wikiQuotes->getQuotes();
 
-        $dom = new DOMDocument();
-
-        $htmlQuotes = [];
-        foreach($this->getPayload($wikiQuotes, $dom) as $domNode) {
-            $htmlQuotes[] = $dom->saveHTML($domNode);
-        }
-
-        $cleanQuotes = $this->sanitizeHtmlQuotes($htmlQuotes);
+        $cleanQuotes = $this->sanitizeHtmlQuotes($wikiQuotes);
 
         return $cleanQuotes[array_rand($cleanQuotes, 1)];
     }
 
-    private function getPayload(array $wikiQuotes, DOMDocument $dom): DOMNodeList
-    {
-        $dom->loadHTML($wikiQuotes['parse']['text']['*']);
-
-        return  $dom->getElementsByTagName('p');
-    }
-
-    private function sanitizeHtmlQuotes(array $htmlQuotes): array
+    private function sanitizeHtmlQuotes(array $wikiQuotes): array
     {
         $names = [
             self::ESTRAGON,
@@ -49,21 +35,15 @@ final class SamuelBeckett
         ];
 
         $sanitizedQuotes = [];
-        foreach ($htmlQuotes as $key => &$htmlQuote) {
-            $htmlQuote = strip_tags($htmlQuote);
-
+        foreach ($wikiQuotes as $quote) {
             foreach($names as $name) {
-                if (strpos($htmlQuote, $name) !== false) {
-                    $htmlQuote = str_replace($name, '', $htmlQuote);
+                if (strpos($quote->getQuote(), $name) !== false) {
+                    $quote->quote = str_replace($name, '', $quote->quote);
                 }
             }
 
-            $htmlQuotesArray = explode("\n", $htmlQuote);
-
-            foreach ($htmlQuotesArray as $htmlQuoteString) {
-                if ($htmlQuoteString !== '') {
-                    $sanitizedQuotes[] = $htmlQuoteString;
-                }
+            if ($quote->quote !== '') {
+                $sanitizedQuotes[] = $quote->quote;
             }
         }
 

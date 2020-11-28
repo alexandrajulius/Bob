@@ -18,7 +18,7 @@ final class SamuelBeckettTest extends TestCase
         return $this->container->getSamuelBeckett();
     }
 
-    public function testGetsRandomBeckettQuoteFromWikiQuotes()
+    public function testGetsSeedNineFromRandomBeckettQuote()
     {
         srand(9);
         $actualQuote = $this->getSamuelBeckett()->quote();
@@ -26,7 +26,19 @@ final class SamuelBeckettTest extends TestCase
         $this->assertStringContainsString(
             ' (sententious.) To every man his little cross. (He sighs.)  Till he dies.  (Afterthought.) And is forgotten.',
             $actualQuote,
-            'Did not get Beckett quote.'
+            'Did not get Beckett quote seed 9.'
+        );
+    }
+
+    public function testGetsSeedThirteenFromRandomBeckettQuote()
+    {
+        srand(13);
+        $actualQuote = $this->getSamuelBeckett()->quote();
+
+        $this->assertStringContainsString(
+            'You should have been a poet.',
+            $actualQuote,
+            'Did not get Beckett quote seed 13.'
         );
     }
 }
