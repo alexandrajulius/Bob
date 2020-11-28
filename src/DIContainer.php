@@ -18,9 +18,4 @@ final class DIContainer
     {
         return new WikiQuotes();
     }
-
-    public function getQuote(): Quote
-    {
-        return new Quote();
-    }
 }

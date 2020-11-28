@@ -1,9 +1,9 @@
 <?php
 
 require 'src/Bob.php';
+require 'src/Quote.php';
 require 'src/WikiQuotes.php';
 require 'src/SamuelBeckett.php';
-
 
 echo '
          /       
@@ -11,7 +11,7 @@ echo '
        /[_]\ 
         ] [   
 ' . PHP_EOL;
-echo '[^_^] Hello, I\'m Bob.' . PHP_EOL;
+echo '[^_^]  Hello, I\'m Bob.' . PHP_EOL;
 
 $bob = new Bob(new SamuelBeckett(new WikiQuotes()));
 

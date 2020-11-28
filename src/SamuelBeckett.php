@@ -19,7 +19,6 @@ final class SamuelBeckett
     public function quote(): string
     {
         $wikiQuotes = $this->wikiQuotes->getQuotes();
-
         $cleanQuotes = $this->sanitizeHtmlQuotes($wikiQuotes);
 
         return $cleanQuotes[array_rand($cleanQuotes, 1)];
@@ -27,7 +26,7 @@ final class SamuelBeckett
 
     private function sanitizeHtmlQuotes(array $wikiQuotes): array
     {
-        $names = [
+        $actors = [
             self::ESTRAGON,
             self::VLADIMIR,
             self::POZZO,
@@ -36,9 +35,9 @@ final class SamuelBeckett
 
         $sanitizedQuotes = [];
         foreach ($wikiQuotes as $quote) {
-            foreach($names as $name) {
-                if (strpos($quote->getQuote(), $name) !== false) {
-                    $quote->quote = str_replace($name, '', $quote->quote);
+            foreach($actors as $actor) {
+                if (strpos($quote->getQuote(), $actor) !== false) {
+                    $quote->quote = str_replace($actor, '', $quote->quote);
                 }
             }
 
@@ -46,6 +45,7 @@ final class SamuelBeckett
                 $sanitizedQuotes[] = $quote->quote;
             }
         }
+        unset($sanitizedQuotes[0]);
 
         return $sanitizedQuotes;
     }
