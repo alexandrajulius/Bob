@@ -28,6 +28,7 @@ In the root directory type:
       php bobtalk.php
 
 and have elementary conversations with Bob such as:
+
 <img width="810" alt="Screenshot 2020-11-28 at 16 31 34" src="https://user-images.githubusercontent.com/23189414/100519284-4ad18580-3197-11eb-85e6-d3c917f19699.png">
 
 You can further extends Bob to quote from your favourite book by requesting quotes from [https://en.wikiquote.org/](https://en.wikiquote.org/wiki/Main_Page)
