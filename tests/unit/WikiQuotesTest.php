@@ -7,6 +7,7 @@ namespace Tests\unit;
 use DIContainer;
 use PHPUnit\Framework\TestCase;
 use Quote;
+use VCR\VCR;
 
 final class WikiQuotesTest extends TestCase
 {
@@ -23,12 +24,12 @@ final class WikiQuotesTest extends TestCase
      */
     public function testReturnsArrayOfQuotes()
     {
-        \VCR\VCR::configure()->setMode(\VCR\VCR::MODE_NONE);
+        VCR::configure()->setMode(VCR::MODE_NONE);
 
         $actualQuotes = $this->getWikiQuotes()->getQuotes();
 
         foreach ($actualQuotes as $quote) {
-            self::assertInstanceOf(\Quote::class, $quote);
+            self::assertInstanceOf(Quote::class, $quote);
         }
 
         $expectedQuote = (new Quote('Samuel Beckett', 'Samuel Beckett (13 April 1906 â 22 December 1989) was an Irish playwright, novelist, poet and winner of the 1969 Nobel Prize in Literature. He wrote mainly in English and French.'));
