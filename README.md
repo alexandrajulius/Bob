@@ -1,14 +1,14 @@
-# Bob {^_^}
+# Bob [^_^]
 ## A tragicomic chat bot
 
 Bob used to be a lackadaisical teenager and was born in a Code Kata.
 In conversation, his responses were limited:
-* Bob answered 'Sure.' if you asked him a question.
-* He answered 'Whoa, chill out!' if you YELLED AT HIM.
-* He answered 'Calm down, I know what I'm doing!' if you yelled a question at him.
-* He said 'Fine. Be that way!' if you addressed him without actually saying anything.
+* Bob answered "Sure." if you asked him a question.
+* He answered "Whoa, chill out!" if you YELLED AT HIM.
+* He answered "Calm down, I know what I'm doing!" if you yelled a question at him.
+* He said "Fine. Be that way!" if you addressed him without actually saying anything.
 
-Now Bob quotes from Samuel Beckett’s 'Waiting for Godot' in most of the cases.
+Now Bob quotes from Samuel Beckett’s [<em>Waiting for Godot</em>](https://en.wikipedia.org/wiki/Waiting_for_Godot) in most of the cases.
 
 ## How to run
 dependencies:
@@ -46,7 +46,7 @@ Run phpunit code coverage
 ```
 $ vendor/bin/phpunit tests --coverage-text
 ```
-<img width="381" alt="Screenshot 2020-11-27 at 21 33 59" src="https://user-images.githubusercontent.com/23189414/100482624-59b52b00-30f8-11eb-88b5-7ab5d6cee87a.png">
+<img width="378" alt="Screenshot 2020-11-28 at 17 08 03" src="https://user-images.githubusercontent.com/23189414/100520095-570c1180-319c-11eb-845c-9841af212c27.png">
 
 ## Author Contact
 [alexandra.julius@gmail.com](mailto:alexandra.julius@gmail.com)
