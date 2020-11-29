@@ -6,22 +6,22 @@ namespace Tests\unit;
 
 use DIContainer;
 use PHPUnit\Framework\TestCase;
-use SamuelBeckett;
+use SamuelBeckettScraper;
 
 final class SamuelBeckettTest extends TestCase
 {
     private $container;
 
-    protected function getSamuelBeckett(): SamuelBeckett
+    protected function getSamuelBeckettScraper(): SamuelBeckettScraper
     {
         $this->container = new DIContainer();
-        return $this->container->getSamuelBeckett();
+        return $this->container->getSamuelBeckettScraper();
     }
 
     public function testGetsSeedNineFromRandomBeckettQuote()
     {
         srand(9);
-        $actualQuote = $this->getSamuelBeckett()->quote();
+        $actualQuote = $this->getSamuelBeckettScraper()->quote();
 
         $this->assertStringContainsString(
             '(sententious.) To every man his little cross. (He sighs.)  Till he dies.  (Afterthought.) And is forgotten.',
@@ -33,7 +33,7 @@ final class SamuelBeckettTest extends TestCase
     public function testGetsSeedThirteenFromRandomBeckettQuote()
     {
         srand(13);
-        $actualQuote = $this->getSamuelBeckett()->quote();
+        $actualQuote = $this->getSamuelBeckettScraper()->quote();
 
         $this->assertStringContainsString(
             'You should have been a poet.',

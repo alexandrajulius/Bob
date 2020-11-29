@@ -6,7 +6,7 @@ final class Bob
 {
     private $samuelBecket;
 
-    public function __construct(SamuelBeckett $samuelBeckett)
+    public function __construct(SamuelBeckettScraper $samuelBeckett)
     {
         $this->samuelBecket = $samuelBeckett;
     }

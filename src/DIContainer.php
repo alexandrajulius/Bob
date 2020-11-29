@@ -6,27 +6,27 @@ final class DIContainer
 {
     public function getBob(): Bob
     {
-        return new Bob($this->getSamuelBeckett());
+        return new Bob($this->getSamuelBeckettScraper());
     }
 
-    public function getSamuelBeckett(): SamuelBeckett
+    public function getSamuelBeckettScraper(): SamuelBeckettScraper
     {
-        return new SamuelBeckett($this->getQuoteProvider());
+        return new SamuelBeckettScraper($this->getQuoteProvider());
     }
 
-    public function getOscarWilde(): OscarWilde
+    public function getOscarWildeScraper(): OscarWildeScraper
     {
-        return new OscarWilde($this->getQuoteProvider());
+        return new OscarWildeScraper($this->getQuoteProvider());
     }
 
     public function getQuoteProvider(): CachedQuoteProvider
     {
-        return new CachedQuoteProvider($this->getWikiQuotes());
+        return new CachedQuoteProvider($this->getWikiQuotesProvider());
     }
 
-    public function getWikiQuotes(): WikiQuotes
+    public function getWikiQuotesProvider(): WikiQuotesProvider
     {
-        return new WikiQuotes();
+        return new WikiQuotesProvider();
     }
 
     public function TypeFiteQuotesProvider(): TypeFitQuotesProvider

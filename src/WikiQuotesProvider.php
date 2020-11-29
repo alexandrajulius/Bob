@@ -2,29 +2,14 @@
 
 declare(strict_types=1);
 
-//rename to WikiQuotesProvider
-final class WikiQuotes implements QuoteProvider
+final class WikiQuotesProvider implements QuoteProvider
 {
-    public const WIKI_QUOTE_HTTP_REQUEST = 'https://en.wikiquote.org/w/api.php?format=json&action=parse&page=Samuel_Beckett#Waiting_for_Godot_(1952)&prop=text';
-    public const AUTHOR = 'Samuel Beckett';
-    public const CACHE_FILE = './data/samuelBeckettCache.txt';
-
-    //input => author name output => Quotes
-
-    //create decorator to cache wikiquotes
-
-    //create $quoteProvider->get('Samuel_Becket');
-    //class CachedQuoteProvider { public function get($author) { if (!$cached) { $this->cache = $this->quoteProvider->get($author); ...
+    public const WIKI_QUOTE_HTTP_REQUEST_SAMUEL_BECKETT = 'https://en.wikiquote.org/w/api.php?format=json&action=parse&page=Samuel_Beckett#Waiting_for_Godot_(1952)&prop=text';
     public const WIKI_QUOTE_HTTP_REQUEST_OSCAR_WILDE = 'https://en.wikiquote.org/w/api.php?format=json&action=parse&page=Oscar_Wilde#The_Importance_of_Being_Earnest_(1895)&prop=text';
-    public const AUTHOR_OSCAR_WILDE = 'Oscar Wilde';
-    public const CACHE_FILE_OSCAR_WILDE = './data/oscarWildeCache.txt';
 
-    /**
-     * @return Quote[]
-     */
     public function getQuotes(string $author): array
     {
-        $json = file_get_contents(self::WIKI_QUOTE_HTTP_REQUEST);
+        $json = $this->getContentForAuthor($author);
 
         $response = json_decode($json, true);
         $dom = new DOMDocument();
@@ -41,24 +26,16 @@ final class WikiQuotes implements QuoteProvider
 
         return $quotes;
     }
-/*
-    private function getWikiQuotes(): string
+
+    private function getContentForAuthor(string $author): string
     {
-        $cachedWikiQuotes = file_get_contents(self::CACHE_FILE, true);
-
-        if (!isset($cachedWikiQuotes) || $cachedWikiQuotes === '') {
-            file_put_contents(
-                self::CACHE_FILE,
-                file_get_contents(self::WIKI_QUOTE_HTTP_REQUEST).PHP_EOL ,
-                FILE_APPEND | LOCK_EX
-            );
-
-            return file_get_contents(self::CACHE_FILE);
+        if ($author !== 'Samuel Beckett') {
+            return file_get_contents(self::WIKI_QUOTE_HTTP_REQUEST_OSCAR_WILDE);
         }
 
-        return $cachedWikiQuotes;
+        return file_get_contents(self::WIKI_QUOTE_HTTP_REQUEST_SAMUEL_BECKETT);
     }
-*/
+
     private function getPayload(array $wikiQuotes, DOMDocument $dom): DOMNodeList
     {
         $dom->loadHTML($wikiQuotes['parse']['text']['*']);
