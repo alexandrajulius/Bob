@@ -24,7 +24,7 @@ final class SamuelBeckettTest extends TestCase
         $actualQuote = $this->getSamuelBeckett()->quote();
 
         $this->assertStringContainsString(
-            ' (sententious.) To every man his little cross. (He sighs.)  Till he dies.  (Afterthought.) And is forgotten.',
+            '(sententious.) To every man his little cross. (He sighs.)  Till he dies.  (Afterthought.) And is forgotten.',
             $actualQuote,
             'Did not get Beckett quote seed 9.'
         );

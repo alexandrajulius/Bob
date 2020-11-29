@@ -1,9 +1,6 @@
 <?php
 
-require 'src/Bob.php';
-require 'src/Quote.php';
-require 'src/WikiQuotes.php';
-require 'src/SamuelBeckett.php';
+require 'vendor/autoload.php';
 
 echo '
          /       
@@ -13,7 +10,7 @@ echo '
 ' . PHP_EOL;
 echo '[^_^]  Hello, I\'m Bob.' . PHP_EOL;
 
-$bob = new Bob(new SamuelBeckett(new WikiQuotes()));
+$bob = (new DIContainer())->getBob();
 
 while (true) {
 	$sentence = readline();

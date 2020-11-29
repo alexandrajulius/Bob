@@ -13,10 +13,10 @@ final class WikiQuotesTest extends TestCase
 {
     private $container;
 
-    protected function getWikiQuotes(): \WikiQuotes
+    protected function getQuoteProvider(): \QuoteProvider
     {
         $this->container = new DIContainer();
-        return $this->container->getWikiQuotes();
+        return $this->container->getQuoteProvider();
     }
 
     /**
@@ -26,7 +26,7 @@ final class WikiQuotesTest extends TestCase
     {
         VCR::configure()->setMode(VCR::MODE_NONE);
 
-        $actualQuotes = $this->getWikiQuotes()->getQuotes();
+        $actualQuotes = $this->getQuoteProvider()->getQuotes('Samuel Beckett', 'Waiting for Godot');
 
         foreach ($actualQuotes as $quote) {
             self::assertInstanceOf(Quote::class, $quote);
