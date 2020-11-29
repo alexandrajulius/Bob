@@ -21,7 +21,7 @@ final class SamuelBeckett implements Author
 
     public function quote(): string
     {
-        $wikiQuotes = $this->quoteProvider->getQuotes('Samuel Beckett', 'Waiting for Godot');
+        $wikiQuotes = $this->quoteProvider->getQuotes('Samuel Beckett');
         $cleanQuotes = $this->sanitizeHtmlQuotes($wikiQuotes);
 
         return $cleanQuotes[array_rand($cleanQuotes, 1)];

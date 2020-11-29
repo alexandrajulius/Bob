@@ -26,7 +26,7 @@ final class WikiQuotesTest extends TestCase
     {
         VCR::configure()->setMode(VCR::MODE_NONE);
 
-        $actualQuotes = $this->getQuoteProvider()->getQuotes('Samuel Beckett', 'Waiting for Godot');
+        $actualQuotes = $this->getQuoteProvider()->getQuotes('Samuel Beckett');
 
         foreach ($actualQuotes as $quote) {
             self::assertInstanceOf(Quote::class, $quote);

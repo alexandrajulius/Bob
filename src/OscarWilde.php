@@ -13,7 +13,7 @@ final class OscarWilde implements Author
 
     public function quote(): string
     {
-        $wikiQuotes = $this->quoteProvider->getQuotes('Oskar Wilde', 'The importance of being Ernest');
+        $wikiQuotes = $this->quoteProvider->getQuotes('Oskar Wilde');
         $cleanQuotes = $this->sanitizeHtmlQuotes($wikiQuotes);
 
         return $cleanQuotes[array_rand($cleanQuotes, 1)];

@@ -22,7 +22,7 @@ final class WikiQuotes implements QuoteProvider
     /**
      * @return Quote[]
      */
-    public function getQuotes(string $author, string $book): array
+    public function getQuotes(string $author): array
     {
         $json = file_get_contents(self::WIKI_QUOTE_HTTP_REQUEST);
 

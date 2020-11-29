@@ -11,17 +11,16 @@ final class CachedQuoteProvider implements QuoteProvider
         $this->quoteProvider = $quoteProvider;
     }
 
-    public function getQuotes(string $author, string $book): array
+    public function getQuotes(string $author): array
     {
         $author = str_replace(' ', '', $author);
-        $book = str_replace(' ', '', $book);
-        $cacheFile = './data/' . $author . $book . 'Cache.txt';
+        $cacheFile = './data/' . $author . 'Cache.txt';
 
         if (file_exists($cacheFile)) {
             return unserialize(file_get_contents($cacheFile));
         }
 
-        $quotes = $this->quoteProvider->getQuotes($author, $book);
+        $quotes = $this->quoteProvider->getQuotes($author);
 
         file_put_contents($cacheFile, serialize($quotes));
 
