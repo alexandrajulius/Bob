@@ -3,10 +3,10 @@
 
 Bob used to be a lackadaisical teenager and was born in a Code Kata.
 In conversation, his responses were limited:
-* Bob answered "Sure." if you asked him a question.
-* He answered "Whoa, chill out!" if you YELLED AT HIM.
-* He answered "Calm down, I know what I'm doing!" if you yelled a question at him.
-* He said "Fine. Be that way!" if you addressed him without actually saying anything.
+* Bob answers "Sure." if you ask him a question.
+* He answers "Whoa, chill out!" if you YELLED AT HIM.
+* He used to answer "Calm down, I know what I'm doing!" if you yelled a question at him.
+* He used to say "Fine. Be that way!" if you addressed him without actually saying anything.
 
 Now Bob quotes from Samuel Beckett’s [<em>Waiting for Godot</em>](https://en.wikipedia.org/wiki/Waiting_for_Godot) in most of the cases.
 

@@ -15,13 +15,13 @@ final class WikiQuotesProvider implements QuoteProvider
         $dom = new DOMDocument();
 
         $htmlQuotes = [];
-        foreach($this->getPayload($response, $dom) as $domNode) {
+        foreach($this->getPayload($response, $dom, $author) as $domNode) {
             $htmlQuotes[] = $dom->saveHTML($domNode);
         }
 
         $quotes = [];
         foreach ($this->sanitizeHtmlQuotes($htmlQuotes) as $quote) {
-            $quotes[] = new Quote(self::AUTHOR, $quote);
+            $quotes[] = new Quote($author, $quote);
         }
 
         return $quotes;
@@ -36,9 +36,13 @@ final class WikiQuotesProvider implements QuoteProvider
         return file_get_contents(self::WIKI_QUOTE_HTTP_REQUEST_SAMUEL_BECKETT);
     }
 
-    private function getPayload(array $wikiQuotes, DOMDocument $dom): DOMNodeList
+    private function getPayload(array $wikiQuotes, DOMDocument $dom, string $author): DOMNodeList
     {
         $dom->loadHTML($wikiQuotes['parse']['text']['*']);
+
+        if ($author !== 'Samuel Beckett') {
+      #      return $dom->getElementsByTagName('li');
+        }
 
         return $dom->getElementsByTagName('p');
     }

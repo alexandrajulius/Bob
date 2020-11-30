@@ -23,13 +23,6 @@ final class OscarWildeScraper
     {
         $sanitizedQuotes = [];
         foreach ($wikiQuotes as $quote) {
-            /*
-            foreach($actors as $actor) {
-                if (strpos($quote->getQuote(), $actor) !== false) {
-                    $quote->quote = str_replace($actor, '', $quote->quote);
-                }
-            }
-*/
             if ($quote->quote !== '') {
                 $sanitizedQuotes[] = $quote->quote;
             }

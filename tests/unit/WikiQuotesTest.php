@@ -20,7 +20,7 @@ final class WikiQuotesTest extends TestCase
     }
 
     /**
-     * @vcr wikiQuoteHttpRequest
+     * @vcr wikiQuoteHttpRequestBeckett
      */
     public function testReturnsArrayOfQuotes()
     {
@@ -33,6 +33,24 @@ final class WikiQuotesTest extends TestCase
         }
 
         $expectedQuote = (new Quote('Samuel Beckett', 'Samuel Beckett (13 April 1906 â 22 December 1989) was an Irish playwright, novelist, poet and winner of the 1969 Nobel Prize in Literature. He wrote mainly in English and French.'));
+
+        self::assertEquals($expectedQuote, $actualQuotes[0], 'First element of Quotes array does not match.');
+    }
+
+    /**
+     * @vcr wikiQuoteHttpRequestWilde
+     */
+    public function testReturnsArrayOfOscarWildeQuotes()
+    {
+        VCR::configure()->setMode(VCR::MODE_ONCE);
+
+        $actualQuotes = $this->getQuoteProvider()->getQuotes('Oscar Wilde');
+
+        foreach ($actualQuotes as $quote) {
+            self::assertInstanceOf(Quote::class, $quote);
+        }
+
+        $expectedQuote = (new Quote('OscarWilde', 'Oscar Fingal O\'Flahertie Wills Wilde (16 October 1854 â 30 November 1900) was an Irish essayist, novelist, playwright and poet.'));
 
         self::assertEquals($expectedQuote, $actualQuotes[0], 'First element of Quotes array does not match.');
     }
