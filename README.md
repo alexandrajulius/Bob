@@ -32,6 +32,7 @@ and have elementary conversations with Bob such as:
 Maybe in the future, Bob will be able to use normalized data such as 
 * [https://type.fit/api/quotes](https://type.fit/api/quotes) or
 * [https://www.kaggle.com/akmittal/quotes-dataset](https://www.kaggle.com/akmittal/quotes-dataset)
+
 You could then initialize him with an argument `author` and make him quote Albert Einstein, Toni Morrison or Douglas Adams.
 
 ## How to test
