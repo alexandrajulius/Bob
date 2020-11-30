@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 final class SamuelBeckettScraper
 {
-    public const ESTRAGON = 'Estragon:';
-    public const VLADIMIR = 'Vladimir:';
-    public const POZZO = 'Pozzo:';
-    public const BOY = 'Boy:';
+    private const AUTHOR = 'Samuel Beckett';
+    private const ESTRAGON = 'Estragon:';
+    private const VLADIMIR = 'Vladimir:';
+    private const POZZO = 'Pozzo:';
+    private const BOY = 'Boy:';
 
     private $quoteProvider;
 
@@ -18,7 +19,7 @@ final class SamuelBeckettScraper
 
     public function quote(): string
     {
-        $wikiQuotes = $this->quoteProvider->getQuotes('Samuel Beckett');
+        $wikiQuotes = $this->quoteProvider->getQuotes(self::AUTHOR);
         $cleanQuotes = $this->sanitizeHtmlQuotes($wikiQuotes);
 
         return $cleanQuotes[array_rand($cleanQuotes, 1)];

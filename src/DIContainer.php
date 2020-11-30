@@ -14,23 +14,13 @@ final class DIContainer
         return new SamuelBeckettScraper($this->getQuoteProvider());
     }
 
-    public function getOscarWildeScraper(): OscarWildeScraper
-    {
-        return new OscarWildeScraper($this->getQuoteProvider());
-    }
-
     public function getQuoteProvider(): CachedQuoteProvider
     {
-        return new CachedQuoteProvider($this->getWikiQuotesProvider());
+        return new CachedQuoteProvider($this->getWikiQuoteProvider());
     }
 
-    public function getWikiQuotesProvider(): WikiQuotesProvider
+    public function getWikiQuoteProvider(): WikiQuoteProvider
     {
-        return new WikiQuotesProvider();
-    }
-
-    public function TypeFiteQuotesProvider(): TypeFitQuotesProvider
-    {
-        return new TypeFitQuotesProvider();
+        return new WikiQuoteProvider();
     }
 }

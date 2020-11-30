@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-final class WikiQuotesProvider implements QuoteProvider
+final class WikiQuoteProvider implements QuoteProvider
 {
     public const WIKI_QUOTE_HTTP_REQUEST_SAMUEL_BECKETT = 'https://en.wikiquote.org/w/api.php?format=json&action=parse&page=Samuel_Beckett#Waiting_for_Godot_(1952)&prop=text';
-    public const WIKI_QUOTE_HTTP_REQUEST_OSCAR_WILDE = 'https://en.wikiquote.org/w/api.php?format=json&action=parse&page=Oscar_Wilde#The_Importance_of_Being_Earnest_(1895)&prop=text';
 
     public function getQuotes(string $author): array
     {
-        $json = $this->getContentForAuthor($author);
+        $json = file_get_contents(self::WIKI_QUOTE_HTTP_REQUEST_SAMUEL_BECKETT);
 
         $response = json_decode($json, true);
         $dom = new DOMDocument();
@@ -21,19 +20,10 @@ final class WikiQuotesProvider implements QuoteProvider
 
         $quotes = [];
         foreach ($this->sanitizeHtmlQuotes($htmlQuotes) as $quote) {
-            $quotes[] = new Quote(self::AUTHOR, $quote);
+            $quotes[] = new Quote($author, $quote);
         }
 
         return $quotes;
-    }
-
-    private function getContentForAuthor(string $author): string
-    {
-        if ($author !== 'Samuel Beckett') {
-            return file_get_contents(self::WIKI_QUOTE_HTTP_REQUEST_OSCAR_WILDE);
-        }
-
-        return file_get_contents(self::WIKI_QUOTE_HTTP_REQUEST_SAMUEL_BECKETT);
     }
 
     private function getPayload(array $wikiQuotes, DOMDocument $dom): DOMNodeList

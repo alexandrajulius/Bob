@@ -1,6 +1,5 @@
 # Bob [^_^]
 ## A tragicomic chat bot
-
 Bob used to be a lackadaisical teenager and was born in a Code Kata.
 In conversation, his responses were limited:
 * Bob answered "Sure." if you asked him a question.
@@ -22,7 +21,6 @@ $ composer install
 ```
 
 ## Usage
-
 In the root directory type:
       
       php bobtalk.php
@@ -47,7 +45,6 @@ Run phpunit code coverage
 ```
 $ vendor/bin/phpunit tests --coverage-text
 ```
-<img width="378" alt="Screenshot 2020-11-28 at 17 08 03" src="https://user-images.githubusercontent.com/23189414/100520095-570c1180-319c-11eb-845c-9841af212c27.png">
 
 ## Author Contact
 [alexandra.julius@gmail.com](mailto:alexandra.julius@gmail.com)

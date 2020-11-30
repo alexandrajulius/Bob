@@ -7,13 +7,14 @@ namespace Tests\unit;
 use DIContainer;
 use PHPUnit\Framework\TestCase;
 use Quote;
+use QuoteProvider;
 use VCR\VCR;
 
-final class WikiQuotesTest extends TestCase
+final class QuoteProviderTest extends TestCase
 {
     private $container;
 
-    protected function getQuoteProvider(): \QuoteProvider
+    protected function getQuoteProvider(): QuoteProvider
     {
         $this->container = new DIContainer();
         return $this->container->getQuoteProvider();
