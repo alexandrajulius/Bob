@@ -33,7 +33,7 @@ Maybe in the future, Bob will be able to use normalized data such as
 * [https://type.fit/api/quotes](https://type.fit/api/quotes) or
 * [https://www.kaggle.com/akmittal/quotes-dataset](https://www.kaggle.com/akmittal/quotes-dataset)
 
-You could then initialize him with an argument `author` and make him quote Albert Einstein, Toni Morrison or Douglas Adams.
+You could then initialize him with an argument `author` and make him quote Albert Einstein, Toni Morrison, Douglas Adams or whoever is your favourite author.
 
 ## How to test
 Dependencies:
