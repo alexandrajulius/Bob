@@ -49,6 +49,3 @@ Run phpunit code coverage
 ```
 $ vendor/bin/phpunit tests --coverage-text
 ```
-
-## Author Contact
-[alexandra.julius@gmail.com](mailto:alexandra.julius@gmail.com)
